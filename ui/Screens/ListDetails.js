@@ -12,26 +12,15 @@ export default function ListDetails({route}) {
     const [products, setProducts] = useState([]);
     const [newItem, setNewItem] = useState({});
     const [isOpen, setIsOpen] = useState(false);
-    const toggleOpen = () => {
-        setIsOpen(!isOpen);
-    }
+    const toggleOpen = () => {setIsOpen(!isOpen)}
 
     useEffect(() => {
             getData()
         },   []);
-    async function addNewItem(payload) {
-        try {
-             const addItem = await addItemToList(id,payload)
-
-        } catch (error) {
-
-            console.log(error)
-        }
-    }
 
     const getData = async () => {
         try {
-            const response = await getItems(id); //TODO proveri productid na additem i getitems
+            const response = await getItems(id);
             setProducts(response)
 
         } catch (error) {
@@ -47,8 +36,10 @@ export default function ListDetails({route}) {
     return (
         <View style={styles.container}>
             {isOpen ? (
-                <ExpoScan/>
-            ) : (<Button title={"ADD NEW ITEM"} onPress={toggleOpen}></Button>)
+                <ExpoScan
+                    refreshModal={getData()}
+                          listid={id}/>
+            ) : (<Button title={"ADD NEW ITEM"}  onPress={toggleOpen}></Button>)
             }
             <FlatList data={products}
                       renderItem={({item})=><ListDetailsItem listDetails={item}/>} />

@@ -8,6 +8,7 @@ import AllList from "./ui/Screens/AllList";
 import ScanMe from "./ui/Screens/ScanMe";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import ListDetails from "./ui/Screens/ListDetails";
+import { RootSiblingParent } from 'react-native-root-siblings';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -15,13 +16,14 @@ const Drawer = createDrawerNavigator();
 
 function TabNavigator(){
     return (
+        <RootSiblingParent>
         <NavigationContainer >
             {Platform.OS == "android" && (
                 <Drawer.Navigator>
                     <Drawer.Screen name="Products" component={Home}/>
                     <Drawer.Screen name="Maps" component={Map}/>
                     <Drawer.Screen name="Scan" component={ScanMe}/>
-                    <Drawer.Screen name="StackLists" options={{headerShown:false}} component={AllList} />
+                    <Drawer.Screen name="StackLists" options={{headerShown:false}} component={StackNavigator} />
                 </Drawer.Navigator>
             )}
             {Platform.OS === "ios" && (
@@ -33,6 +35,7 @@ function TabNavigator(){
                 </Tab.Navigator>
             )}
         </NavigationContainer>
+            </RootSiblingParent>
     )
 }
 function StackNavigator(){

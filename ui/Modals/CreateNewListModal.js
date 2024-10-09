@@ -12,7 +12,7 @@ export default function CreateNewListModal(props) {
 
         try {
             const payload = {name: listName}
-            const response = await createNewList(payload)
+            const response = await createNewList(payload)//zavrsi ovaj post ovde
             props.onPostCreate()
             console.log(response)
         } catch (e) {

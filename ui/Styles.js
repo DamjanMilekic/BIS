@@ -22,8 +22,7 @@ export default StyleSheet.create({
     modalScanInner: {
         backgroundColor: "azure",
         width: 300,
-        height: 150,
-        padding: 20,
+        height: 180,
         borderWidth: 1,
         borderColor: "lightsteelblue",
         borderRadius: 2,
@@ -32,7 +31,7 @@ export default StyleSheet.create({
     modalInner: {
         backgroundColor: "azure",
         width: 300,
-        height: 150,
+        height: 180,
         padding: 20,
         borderWidth: 1,
         borderColor: "lightsteelblue",
@@ -53,7 +52,7 @@ export default StyleSheet.create({
     },
     buttonCreate: {
         backgroundColor: 'purple',
-        color:'white',
+        color: 'white',
         padding: 10,
         textAlign: "center"
     },
@@ -67,7 +66,8 @@ export default StyleSheet.create({
     },
 
     textInput: {
-        backgroundColor: "white",
+        backgroundColor: "gray",
+        color:"black",
         height: 30,
         width: 300,
         fontSize: 11,

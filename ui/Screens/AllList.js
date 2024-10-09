@@ -15,10 +15,11 @@ export default function AllList() {
         setModalVisible(!modalVisible);
     }
 
-    function onCreate(){
+    function onCreate() {
         setModalVisible(false);
         getData()
     }
+
     const getData = async () => {
         try {
             const response = await getAllists()
@@ -31,7 +32,7 @@ export default function AllList() {
     }
 
     useEffect(() => {
-       getData()
+        getData()
     }, []);
 
     return (
@@ -42,7 +43,7 @@ export default function AllList() {
                 visible={modalVisible}
                 onPressCancel={toggleModal}
                 onPostCreate={onCreate}
-                />
+            />
             <Button style={styles.buttonCreate} onPress={toggleModal} title={"ADD NEW LIST"}></Button>
             <FlatList data={lists}
                       renderItem={(flatListItem) =>
